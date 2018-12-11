@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloWorldController {
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     public String helloWorld() {
         return "hello";
     }
 
-    @RequestMapping("/capitalize/{stringToCapitalize}")
+    @RequestMapping("/capitalize//{stringToCapitalize}")
     public String capitalize(@PathVariable() String stringToCapitalize) {
 
         return toAllCaps(stringToCapitalize);
