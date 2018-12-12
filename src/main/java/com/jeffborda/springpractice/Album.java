@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.net.URL;
 
 
 @Entity
@@ -17,6 +16,8 @@ public class Album {
     public int songCount;
     public int lengthInSeconds;
     public String imageUrl;
+
+    public Album() { }
 
     public Album(String title, String artist, int songCount, int lengthInSeconds, String imageUrl) {
         this.title = title;
