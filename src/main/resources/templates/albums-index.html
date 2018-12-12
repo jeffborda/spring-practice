@@ -9,7 +9,7 @@
     <ul>
         <li th:each="album : ${albums}">
             <span th:text="${album}"></span>
-            <img th:src ="${album.getImageUrl()}" alt="Album Image"/>
+            <img th:src ="${album.imageUrl}" alt="Album Image"/>
         </li>
     </ul>
 
