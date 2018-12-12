@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Albums</title>
+
+</head>
+<body>
+    <h1>Albums</h1>
+    <ul>
+        <li th:each="album : ${albums}">
+            <span th:text="${album}"></span>
+            <img th:href="@{album.imageUrl}" alt="Album Image"/>
+        </li>
+    </ul>
+
+
+</body>
+</html>
