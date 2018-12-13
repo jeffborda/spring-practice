@@ -6,3 +6,18 @@ In this lab I created an app that allows a user to enter in album information wh
 
 ## Route
 * ```/albums```  Will render all albums from the database, and provide a form for the user to enter new albums.
+
+### How to Run
+
+In order to run, you must have a file called: ```application.properties``` inside the directory: ```/src/main/resources```.
+
+File contains:
+
+```
+spring.datasource.platform=postgres
+spring.datasource.url=jdbc:postgresql://localhost:5432/album_app
+spring.datasource.username=your-postgres-username
+spring.datasource.password=your-postgres-password
+
+spring.jpq.hibernate.ddl-auto=create
+```
