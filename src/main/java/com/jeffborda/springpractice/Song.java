@@ -24,12 +24,6 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", length=" + length +
-                ", trackNumber=" + trackNumber +
-                ", album='" + album + '\'' +
-                '}';
+        return "Song Title: " + title + ", Song Length: " + length + ", Track Number: " + trackNumber + ", Album: " + album.title;
     }
 }
