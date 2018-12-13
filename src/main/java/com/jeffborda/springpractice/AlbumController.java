@@ -47,9 +47,10 @@ public class AlbumController {
         return new RedirectView("/albums");
     }
 
-    @RequestMapping(value="/album/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/albums/{id}", method=RequestMethod.GET)
     public String show(@PathVariable long id, Model m) {
-        albumRepo.findById(id).get();
+        m.addAttribute("album", albumRepo.findById(id).get());
+//        albumRepo.findById(id).get();
         return "albums-show";
     }
 }
