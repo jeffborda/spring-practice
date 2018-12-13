@@ -9,6 +9,8 @@
     <ul>
         <li th:each="album : ${albums}">
             <span th:text="${album}"></span>
+            <!--add th:href to anchor tag in order for this to work, will have to concat-->
+            <a th:href="@{'/album/' + ${album.id}}" >See Details</a>
             <img th:src ="${album.imageUrl}" alt="Album Image"/>
         </li>
     </ul>
