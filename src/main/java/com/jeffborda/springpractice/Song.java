@@ -1,9 +1,6 @@
 package com.jeffborda.springpractice;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Song {
@@ -14,6 +11,9 @@ public class Song {
     public int length;
     public int trackNumber;
     public String album;
+
+    @ManyToOne
+    public Album albumPointer;
 
     public Song() {}
 

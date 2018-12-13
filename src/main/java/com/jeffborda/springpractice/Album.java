@@ -1,9 +1,7 @@
 package com.jeffborda.springpractice;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -16,6 +14,9 @@ public class Album {
     public int songCount;
     public int lengthInSeconds;
     public String imageUrl;
+
+    @OneToMany
+    public List<Song> songs;
 
     public Album() { }
 
