@@ -15,7 +15,7 @@ public class Album {
     public int lengthInSeconds;
     public String imageUrl;
 
-    @OneToMany
+    @OneToMany(mappedBy = "album")
     public List<Song> songs;
 
     public Album() { }

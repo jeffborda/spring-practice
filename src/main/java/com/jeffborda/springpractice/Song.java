@@ -10,18 +10,16 @@ public class Song {
     public String title;
     public int length;
     public int trackNumber;
-    public String album;
 
     @ManyToOne
-    public Album albumPointer;
+    public Album album;
 
     public Song() {}
 
-    public Song(String title, int length, int trackNumber, String album) {
+    public Song(String title, int length, int trackNumber) {
         this.title = title;
         this.length = length;
         this.trackNumber = trackNumber;
-        this.album = album;
     }
 
     @Override
