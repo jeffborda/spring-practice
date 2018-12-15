@@ -17,20 +17,15 @@ import java.net.URL;
 public class AlbumController {
     @Autowired
     private AlbumRepository albumRepo;
+    @Autowired
+    private SongRepository songRepo;
 
     @RequestMapping(value="/albums", method= RequestMethod.GET)
     public String index(Model m) {
         // Get all albums from the database
-//        Album[] albums = new Album[]{
-//               new Album("Siamese Dream", "Smashing Pumpkins", 14, 3650, "https://upload.wikimedia.org/wikipedia/en/4/44/SmashingPumpkins-SiameseDream.jpg"),
-//                new Album("Dolls of Highland", "Kyle Craft", 13, 3555,"https://upload.wikimedia.org/wikipedia/en/7/7f/Kyle_Craft_-_Dolls_of_Highland.jpg")
-//        };
-
         albumRepo.findAll();
-
         // Display albums to the page
         m.addAttribute("albums", albumRepo.findAll());
-
         return "albums-index";
     }
 
@@ -47,10 +42,21 @@ public class AlbumController {
         return new RedirectView("/albums");
     }
 
-    @RequestMapping(value="/albums/{id}", method=RequestMethod.GET)
-    public String show(@PathVariable long id, Model m) {
-        m.addAttribute("album", albumRepo.findById(id).get());
-//        albumRepo.findById(id).get();
+    @RequestMapping(value="/albums/{albumId}", method=RequestMethod.GET)
+    public String show(@PathVariable long albumId, Model m) {
+        m.addAttribute("album", albumRepo.findById(albumId).get());
         return "albums-show";
     }
+
+    @RequestMapping(value="/albums/{albumId}/songs", method=RequestMethod.POST)
+    public RedirectView addSong(@PathVariable long albumId,
+                               @RequestParam String title,
+                               @RequestParam int length,
+                               @RequestParam int track_number) {
+        Song newSong = new Song(title, length, track_number);
+        newSong.album = albumRepo.findById(albumId).get();
+        songRepo.save(newSong);
+        return new RedirectView("/albums/{albumId}");
+    }
+
 }
