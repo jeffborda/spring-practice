@@ -20,7 +20,7 @@ public class AlbumController {
     @Autowired
     private SongRepository songRepo;
 
-    @RequestMapping(value="/albums", method= RequestMethod.GET)
+    @RequestMapping(value="/albums", method=RequestMethod.GET)
     public String index(Model m) {
         // Get all albums from the database
         albumRepo.findAll();

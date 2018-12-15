@@ -5,16 +5,27 @@
 
 </head>
 <body>
-<h1>Albums</h1>
-<ul>
-    <li th:each="song : ${songs}">
-        <span th:text="${song}"></span>
-        <!--<img th:src ="${song}" alt="Album Image"/>-->
-    </li>
-</ul>
+    <h1>Your Songs</h1>
 
 
+    <table>
+        <tr>
+            <th>Song Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Length (sec)</th>
+            <th>Track #</th>
+        </tr>
+        <tr th:each="song : ${songs}">
+            <td th:text="${song.title}"></td>
+            <td th:text="${song.album.artist}"></td>
+            <td th:text="${song.album.title}"></td>
+            <td th:text="${song.length}"></td>
+            <td th:text="${song.trackNumber}"></td>
+        </tr>
+    </table>
 
+    <a href="/albums">Back To Your Albums</a>
 
 </body>
 </html>
