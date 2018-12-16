@@ -20,6 +20,11 @@ public class AlbumController {
     @Autowired
     private SongRepository songRepo;
 
+    @RequestMapping(value="/")
+    public RedirectView rootRoute() {
+        return new RedirectView("/albums");
+    }
+
     @RequestMapping(value="/albums", method=RequestMethod.GET)
     public String index(Model m) {
         // Get all albums from the database
