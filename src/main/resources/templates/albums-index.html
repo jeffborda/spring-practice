@@ -1,28 +1,48 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Albums</title>
+    <title>Your Albums</title>
 
 </head>
 <body>
-    <h1>Albums</h1>
+    <h1>Your Albums</h1>
     <ul>
         <li th:each="album : ${albums}">
-            <span th:text="${album}"></span>
-            <!--add th:href to anchor tag in order for this to work, will have to concat-->
-            <a th:href="@{'/album/' + ${album.id}}" >See Details</a>
-            <img th:src ="${album.imageUrl}" alt="Album Image"/>
+            <p th:text="${album.title} + ' | ' + ${album.artist}"></p>
+
+
+            <a th:href="@{'/albums/' + ${album.id}}">
+                <img th:src ="${album.imageUrl}" alt="Album image" />
+                See Details
+            </a>
         </li>
     </ul>
 
+
+    <h2>Add An Album to Your Collection</h2>
     <form action="/albums" method="POST">
-        <input name="title" placeholder="Title" />
-        <input name="artist" placeholder="Artist" />
-        <input name="song_count" placeholder="Song Count" />
-        <input name="length" placeholder="Length (seconds)" />
-        <input name="image_url" placeholder="Image URL"/>
-        <input type="submit" />
+
+        <label for="title">Album Title</label>
+        <input type="text" name="title" id="title"/>
+
+        <label for="artist">Artist</label>
+        <input type="text" name="artist" id="artist"/>
+
+        <label for="song_count">Song Count</label>
+        <input type="text" name="song_count" id="song_count"/>
+
+        <label for="length">Length (sec)</label>
+        <input type="text" name="length" id="length"/>
+
+        <label for="image_url">Image URL</label>
+        <input type="text" name="image_url" id="image_url"/>
+
+        <input type="submit" value="Add To Your Albums"/>
+
     </form>
+
+
+    <a href="/songs">See Your Song List</a>
 
 
 </body>

@@ -7,7 +7,7 @@ In this lab I created an app that allows a user to enter in album information wh
 ## Route
 * ```/albums```  Will render all albums from the database, and provide a form for the user to enter new albums.
 
-### How to Run
+### Setup Project
 
 In order to run, you must have a file called: ```application.properties``` inside the directory: ```/src/main/resources```.
 
@@ -21,3 +21,9 @@ spring.datasource.password=your-postgres-password
 
 spring.jpq.hibernate.ddl-auto=create
 ```
+
+#### Running Project
+
+To run from command line, use the terminal command:
+
+```./gradlew bootrun```

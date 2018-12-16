@@ -24,6 +24,6 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song Title: " + title + ", Song Length: " + length + ", Track Number: " + trackNumber + ", Album: " + album.title;
+        return "Song Title: " + title + " | Length: " + length + " | Track Number: " + trackNumber + " | Album: " + album.title;
     }
 }

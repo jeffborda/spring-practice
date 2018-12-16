@@ -5,8 +5,33 @@
 
 </head>
 <body>
-<h1>Album Detail View</h1>
+    <h1 th:text="${album.artist}"></h1>
+    <h2 th:text="${album.title}"></h2>
+    <img th:src ="${album.imageUrl}" alt="Album Image"/>
+    <ol>
+        <li th:each="song : ${album.songs}">
+            <span th:text="${song.title}"></span>
+        </li>
+    </ol>
 
+    <h3>Add Songs To This Album:</h3>
+    <form th:action="${'/albums/' + album.id + '/songs'}" method="POST">
+
+        <label for="title">Song Title</label>
+        <input type="text" name="title" id="title"/>
+
+        <label for="length">Song Length (seconds)</label>
+        <input type="text" name="length" id="length"/>
+
+        <label for="track_number">Track Number</label>
+        <input type="text" name="track_number" id="track_number"/>
+
+        <input type="submit" value="Add Song to Album"/>
+
+    </form>
+
+
+    <a href="/albums">Back To Your Albums</a>
 
 </body>
 </html>
